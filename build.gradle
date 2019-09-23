@@ -6,7 +6,7 @@ buildscript {
   }
 }
 
-group = 'test-project1'
+group = 'test-project'
 version = '1.0.0'
 
 apply plugin: 'java'
