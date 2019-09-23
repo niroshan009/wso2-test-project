@@ -1,0 +1,22 @@
+buildscript {
+ 	repositories {
+      		jcenter()
+      		mavenCentral()
+    	        maven { url 'http://maven.wso2.org/nexus/content/groups/wso2-public' }
+  }
+}
+
+group = 'test-project'
+version = '1.0.0'
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+
+
+task deployWSO2() {
+    println "Executing the build and CAR deployment task..."
+    dependsOn ':test-project:buildWSO2'
+    dependsOn ':test-projectCompositeApplication:deployWSO2'
+    tasks.findByPath(':test-projectCompositeApplication:deployWSO2').mustRunAfter ':test-project:buildWSO2'
+}
