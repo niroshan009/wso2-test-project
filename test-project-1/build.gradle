@@ -1,3 +1,5 @@
-task buildWSO2(type:Exec) {    
+task buildWSO2(type:Exec) {
+	println '*****************executing building project*******************'    
 	commandLine 'mvn', 'clean', 'install'
+	println '*****************executing building project finished*******************'  
 }

@@ -1,3 +1,5 @@
 task deployWSO2(type:Exec) {
+	println "**************************Executing deploying project******************"
 	commandLine 'mvn', 'clean', 'deploy', '-Dmaven.car.deploy.skip=false', '-Dmaven.deploy.skip=true'
+	println '*****************executing deploying project finished*******************'  
 }
