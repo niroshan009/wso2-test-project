@@ -14,7 +14,9 @@ apply plugin: 'maven-publish'
 
 
 
-task deployWSO2() {
+task buildAndDeploy() {
     println "Executing the build and CAR deployment task..."
     dependsOn ':test-project-1:buildWSO2'
+    dependsOn ':test-project-1CompositeApplication:deployWSO2'
+    tasks.findByPath(':test-project-1CompositeApplication:deployWSO2').mustRunAfter ':test-project-1:buildWSO2'
 }
