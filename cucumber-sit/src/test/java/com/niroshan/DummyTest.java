@@ -21,7 +21,7 @@ import java.util.Properties;
 
 public class DummyTest {
 
-    public String apiBaseUrl = "http://10.0.2.15:8280/mock/success";
+    public String apiBaseUrl = "http://localhost:8280/mock/success";
     public String apiHost;
     public APIMResponse apiManagerResponse;
     public APIMRequests apiManagerRequests = new APIMRequests();
