@@ -7,7 +7,7 @@ task deployWSO2(type:Exec) {
 task uploadToArtifactory(type: Exec) {
 description = 'Deploys CAR file to artifactory'
 
-def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml", "-Dartifactory-username=deployer", "-Dartifactory-password=password", "-Dartifactory-url=http://localhost:8081/artifactory/libs-release", "-Dartifactory-repo-key=local" ]
+def command = [ 'mvn',  'deploy' ]
 
 commandLine command
 }
