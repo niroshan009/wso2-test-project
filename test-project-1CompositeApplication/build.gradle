@@ -1,7 +1,6 @@
 task deployWSO2(type:Exec) {
 	println "**************************Executing deploying project******************"
-	commandLine 'mvn', 'clean', 'deploy', '-Dmaven.car.deploy.skip=false', '-Dmaven.deploy.skip=true'
-	println '*****************executing deploying project finished*******************'  
+	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
 }
 
 task uploadToArtifactory(type: Exec) {
