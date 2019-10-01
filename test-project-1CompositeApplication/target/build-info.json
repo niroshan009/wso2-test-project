@@ -1,0 +1,61 @@
+{
+  "version" : "1.0.1",
+  "name" : "test-project-1CompositeApplication",
+  "number" : "1569913019023",
+  "type" : "MAVEN",
+  "buildAgent" : {
+    "name" : "Maven",
+    "version" : "3.6.0"
+  },
+  "agent" : {
+    "name" : "Maven",
+    "version" : "3.6.0"
+  },
+  "started" : "2019-10-01T12:27:04.571+0530",
+  "durationMillis" : 10261,
+  "licenseControl" : {
+    "runChecks" : false,
+    "includePublishedArtifacts" : false,
+    "autoDiscover" : false,
+    "licenseViolationsRecipientsList" : "",
+    "scopesList" : ""
+  },
+  "buildRetention" : {
+    "count" : -1,
+    "deleteBuildArtifacts" : true,
+    "buildNumbersNotToBeDiscarded" : [ ]
+  },
+  "modules" : [ {
+    "properties" : {
+      "com.example.test-project-1.api_._mock" : "capp/EnterpriseServiceBus",
+      "artifact.types" : "jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar"
+    },
+    "id" : "com.example.test-project-1:test-project-1CompositeApplication:1.0.0",
+    "artifacts" : [ {
+      "type" : "carbon/application-car",
+      "sha1" : "128c28528b94ada2ae298af495ce787412254e10",
+      "md5" : "2e2add9bc076333c828d6e1a944d5ab3",
+      "name" : "test-project-1CompositeApplication-1.0.0.car"
+    }, {
+      "type" : "pom",
+      "sha1" : "39c1ca77379eca70fc4d1fb35c4ddcd2a8b5744d",
+      "md5" : "58849a9575bf683a7e78190f19f2d850",
+      "name" : "test-project-1CompositeApplication-1.0.0.pom"
+    } ],
+    "dependencies" : [ {
+      "type" : "xml",
+      "sha1" : "89faf31542d47b406feecebac0a887be6d77324c",
+      "md5" : "129f8da92d35c223edf4e5542604ec41",
+      "id" : "com.example.test-project-1.api:mock:1.0.0",
+      "scopes" : [ "compile" ]
+    } ]
+  } ],
+  "governance" : {
+    "blackDuckProperties" : {
+      "runChecks" : false,
+      "includePublishedArtifacts" : false,
+      "autoCreateMissingComponentRequests" : false,
+      "autoDiscardStaleComponentRequests" : false
+    }
+  }
+}

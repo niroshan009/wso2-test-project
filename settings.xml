@@ -1,0 +1,16 @@
+<settings>
+  <profiles>
+    <profile>
+      <id>deploy-artifactory</id>
+      <properties>
+        <maven.car.deploy.skip>true</maven.car.deploy.skip>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <artifactory.url>http://localhost:8081/artifactory/generic-local/</artifactory.url>
+        <artifactory.username>admin</artifactory.username>
+        <artifactory.password>password</artifactory.password>
+        <artifactory.repo.key>local</artifactory.repo.key>
+        <artifactory.phase>deploy</artifactory.phase>
+      </properties>
+    </profile>
+  </profiles>
+</settings>

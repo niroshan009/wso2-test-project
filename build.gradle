@@ -4,6 +4,10 @@ buildscript {
       		mavenCentral()
     	        maven { url 'http://maven.wso2.org/nexus/content/groups/wso2-public' }
   }
+ dependencies {
+    classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+  }
+apply plugin: "com.jfrog.artifactory"
 }
 
 group = 'test-project-1'
