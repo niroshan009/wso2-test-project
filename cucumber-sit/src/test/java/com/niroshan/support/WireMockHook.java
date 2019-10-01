@@ -19,26 +19,13 @@ public class WireMockHook {
 	private WireMock wireMock;
 
 	@Before("@wiremockApi")
-	public void setupWiremockServer(){
+	public void setupWiremockServer() throws InterruptedException {
 		wireMockServer = new WireMockServer(wireMockPort);
 		wireMock = new WireMock(wireMockHost, wireMockPort);
 		wireMockServer.start();
 		
 		wireMock.register(WireMock.get(WireMock.urlPathMatching("/testGet")).willReturn(aResponse().withStatus(200)
-				.withHeader("Content-Type", "application/json").withBody("{\"message\": \"Success\"}")));
-		
-		wireMock.register(WireMock.get(WireMock.urlPathMatching("/testGetLimitOffset"))
-                .withQueryParam("limit", WireMock.matching("([0-9]*)"))
-                .withQueryParam("offset", WireMock.matching("([0-9]*)"))
-                .withHeader("Authorization", equalTo(bearerToken))
-				.willReturn(aResponse().withStatus(200)
-				.withHeader("Content-Type", "application/json").withBody("{\"message\": \"Limit offset success Success\"}")));
-		
-		wireMock.register(WireMock.post(WireMock.urlPathMatching("/testPost"))
-				.withHeader("Authorization", equalTo(bearerToken))
-				.withRequestBody(equalToJson("{\"message\": \"This is Body\"}"))				
-				.willReturn(aResponse().withStatus(200)
-				.withHeader("Content-Type", "application/json").withBody("{\"message\": \"Post Success\"}")));
+				.withHeader("Content-Type", "application/json").withBody("{\"hello\": \"world\"}")));
 	}
 	
 	@After("@wiremockApi")

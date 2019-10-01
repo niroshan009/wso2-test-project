@@ -3,6 +3,7 @@ Feature: Dummy feature
     When I pretend to do something
     Then Something start to happen
 
+    @wiremockApi
     Scenario: Verify json response
       When I call the mock endpoint
       Then the response code is 200
