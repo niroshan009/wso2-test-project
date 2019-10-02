@@ -9,8 +9,8 @@ task uploadToArtifactory(type: Exec) {
 		println('*********************************');
 
 		// def env = System.getenv();
-		var username = System.getenv('JFROG_USERNAME');
-		var password = System.getenv('JFROG_PASSWORD');
+		def username = System.getenv('JFROG_USERNAME');
+		def password = System.getenv('JFROG_PASSWORD');
         def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
 
         commandLine command
