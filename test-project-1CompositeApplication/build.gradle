@@ -4,9 +4,9 @@ task deployWSO2(type:Exec) {
 }
 
 task uploadToArtifactory(type: Exec) {
-description = 'Deploys CAR file to artifactory'
+        description = 'Deploys CAR file to artifactory'
 
-def command = [ 'mvn',  'deploy' ]
+        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ]
 
-commandLine command
+        commandLine command
 }

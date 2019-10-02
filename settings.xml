@@ -5,10 +5,10 @@
       <properties>
         <maven.car.deploy.skip>true</maven.car.deploy.skip>
         <maven.deploy.skip>true</maven.deploy.skip>
-        <artifactory.url>http://localhost:8081/artifactory/generic-local/</artifactory.url>
-        <artifactory.username>admin</artifactory.username>
+        <artifactory.url>http://localhost:8081/artifactory/</artifactory.url>
+        <artifactory.username>deployer</artifactory.username>
         <artifactory.password>password</artifactory.password>
-        <artifactory.repo.key>local</artifactory.repo.key>
+        <artifactory.repo.key>gradle-dev-local</artifactory.repo.key>
         <artifactory.phase>deploy</artifactory.phase>
       </properties>
     </profile>

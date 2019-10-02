@@ -126,11 +126,11 @@
                             <review.team>qa</review.team>
                         </deployProperties>
                         <publisher>
-                            <contextUrl>http://localhost:8081/artifactory/</contextUrl>
-                            <username>deployer</username>
-                            <password>password</password>
-                            <repoKey>generic-local</repoKey>
-                            <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
+                            <contextUrl>${artifactory.url}</contextUrl>
+                            <username>${artifactory.username}</username>
+                            <password>${artifactory.password}</password>
+                            <repoKey>${artifactory.repo.key}</repoKey>
+                            <snapshotRepoKey>${artifactory.repo.key}</snapshotRepoKey>
                         </publisher>
                     </configuration>
                 </execution>
