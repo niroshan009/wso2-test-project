@@ -5,8 +5,10 @@ task deployWSO2(type:Exec) {
 
 task uploadToArtifactory(type: Exec) {
         description = 'Deploys CAR file to artifactory'
+		println('-----------------------------------------------');
+		println('*********************************');
 
-        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ]
+        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username=deployer", "-Dartifactory-password=password"]
 
         commandLine command
 }
