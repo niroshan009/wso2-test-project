@@ -9,10 +9,12 @@ task uploadToArtifactory(type: Exec) {
 		println('*********************************');
 		
 
-		// def env = System.getenv();
+		def env = System.getenv();
 		// def username = System.getenv('JFROG_USERNAME');
 		// def password = System.getenv('JFROG_PASSWORD');
-        //def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
+		def username = System.getenv('JFROG_USERNAME_1');
+		def password = System.getenv('JFROG_PASSWORD_1');
+        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
 
         commandLine command
 }
