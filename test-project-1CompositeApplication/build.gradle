@@ -7,18 +7,12 @@ task uploadToArtifactory(type: Exec) {
         description = 'Deploys CAR file to artifactory'
 		println('-----------------------------------------------');
 		println('*********************************');
-		withCredentials([usernamePassword(
-							credentialsId: 'ARTIFACTORY',
-							passwordVariable: 'PASSWORD',
-							usernameVariable: 'USER')]) {
-			echo "User name: $USER"
-			echo "Password:  $PASSWORD"
-    	}
+		
 
 		// def env = System.getenv();
-		def username = System.getenv('JFROG_USERNAME');
-		def password = System.getenv('JFROG_PASSWORD');
-        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
+		// def username = System.getenv('JFROG_USERNAME');
+		// def password = System.getenv('JFROG_PASSWORD');
+        //def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
 
         commandLine command
 }
