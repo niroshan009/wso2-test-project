@@ -7,7 +7,10 @@ task uploadToArtifactory(type: Exec) {
         description = 'Deploys CAR file to artifactory'
 		println('-----------------------------------------------');
 		println('*********************************');
+		def PROJECT_ARTIFACTORY = credentials('ARTIFACTORY');
 
+		println("///////////////////////////////////");
+		println(PROJECT_ARTIFACTORY);
 
 		// def env = System.getenv();
 		def username = System.getenv('JFROG_USERNAME');
