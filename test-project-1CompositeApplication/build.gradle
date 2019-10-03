@@ -8,6 +8,17 @@ task uploadToArtifactory(type: Exec) {
 		println('-----------------------------------------------');
 		println('*********************************');
 
+		def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
+			com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class,
+			Jenkins.instance,
+			null,
+			null
+		);
+		println("******************** credentials ******************");
+		for (c in creds) {
+			println(c.id + ": " + c.description)
+		}
+
 		// def env = System.getenv();
 		def username = System.getenv('JFROG_USERNAME');
 		def password = System.getenv('JFROG_PASSWORD');
