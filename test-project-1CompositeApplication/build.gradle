@@ -5,22 +5,10 @@ task deployWSO2(type:Exec) {
 
 task uploadToArtifactory(type: Exec) {
         description = 'Deploys CAR file to artifactory'
-		println('-----------------------------------------------');
-		println('*********************************');
-		
 
 		def env = System.getenv();
-		// def username = System.getenv('JFROG_USERNAME');
-		// def password = System.getenv('JFROG_PASSWORD');
-
-
 		def username = System.getenv('JFROG_USERNAME_1');
 		def password = System.getenv('JFROG_PASSWORD_1');
-
-		println('-----------------------------');
-		println(username);
-		println(password);
-		println('**********************************')
         def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
 
         commandLine command
