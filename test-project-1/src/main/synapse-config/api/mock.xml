@@ -4,7 +4,7 @@
         <inSequence>
             <call>
                 <endpoint>
-                    <http method="get" uri-template="http://localhost:9110/testGet"/>
+                    <http method="get" uri-template="http://localhost:9110/testGet/invalid"/>
                 </endpoint>
             </call>
             <respond/>
