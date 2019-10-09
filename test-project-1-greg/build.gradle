@@ -1,0 +1,5 @@
+task buildWSO2(type:Exec) {
+	println '*****************Creating wso2 greg car file*******************'    
+	commandLine 'mvn', 'clean', 'install'
+	println '*****************executing Creating wso2 greg car file finished*******************'  
+}

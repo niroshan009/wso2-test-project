@@ -1,0 +1,5 @@
+task buildWSO2(type:Exec) {
+	println '*****************executing building prod config project*******************'    
+	commandLine 'mvn', 'clean', 'install'
+	println '*****************executing building prod config project finished*******************'  
+}
