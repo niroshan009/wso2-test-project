@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<endpoint name="test-endpoint" xmlns="http://ws.apache.org/ns/synapse">
-    <address uri="http://www.mocky.io/v2/5d9ae1543200005f032ae3ec"/>
-</endpoint>

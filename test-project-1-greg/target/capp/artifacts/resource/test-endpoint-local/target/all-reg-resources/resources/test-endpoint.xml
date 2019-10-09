@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<endpoint name="test-endpoint" xmlns="http://ws.apache.org/ns/synapse">
-    <address uri="http://localhost:9110/testGet"/>
-</endpoint>
