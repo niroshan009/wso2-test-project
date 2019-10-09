@@ -23,6 +23,7 @@ task buildAndDeploy() {
     dependsOn ':test-project-1-prod-config:buildWSO2'
     dependsOn ':test-project-1CompositeApplication:buildWSO2'
     dependsOn ':test-project-1CompositeApplication:deployWSO2'
+    dependsOn ':test-project-1-prod-config:deployWSO2'
 
     tasks.findByPath(':test-project-1-local-config:buildWSO2').mustRunAfter':test-project-1-greg:buildWSO2'
 
@@ -30,7 +31,9 @@ task buildAndDeploy() {
 
     tasks.findByPath(':test-project-1:buildWSO2').mustRunAfter':test-project-1-prod-config:buildWSO2'
 
-     tasks.findByPath(':test-project-1CompositeApplication:buildWSO2').mustRunAfter':test-project-1:buildWSO2'
+    tasks.findByPath(':test-project-1CompositeApplication:buildWSO2').mustRunAfter':test-project-1:buildWSO2'
 
     tasks.findByPath(':test-project-1CompositeApplication:deployWSO2').mustRunAfter ':test-project-1CompositeApplication:buildWSO2'
+
+    tasks.findByPath(':test-project-1-prod-config:deployWSO2').mustRunAfter ':test-project-1CompositeApplication:deployWSO2'
 }

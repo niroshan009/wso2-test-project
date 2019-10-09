@@ -3,3 +3,8 @@ task buildWSO2(type:Exec) {
 	commandLine 'mvn', 'clean', 'install'
 	println '*****************executing building prod config project finished*******************'  
 }
+
+task deployWSO2(type:Exec) {
+	println "**************************Executing deploying project******************"
+	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
+}

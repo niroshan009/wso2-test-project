@@ -3,9 +3,7 @@
     <resource methods="GET">
         <inSequence>
             <call>
-                <endpoint>
-                    <http method="get" uri-template="http://localhost:9110/testGet"/>
-                </endpoint>
+                <endpoint key="gov:endpoints/test-endpoint.xml"/>
             </call>
             <respond/>
         </inSequence>
