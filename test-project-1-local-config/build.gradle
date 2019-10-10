@@ -8,3 +8,14 @@ task deployWSO2(type:Exec) {
 	println "**************************Executing deploying project******************"
 	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
 }
+
+task uploadToArtifactory(type: Exec) {
+        description = 'Deploys CAR file to artifactory'
+
+		def env = System.getenv();
+		def username = System.getenv('JFROG_USERNAME_1');
+		def password = System.getenv('JFROG_PASSWORD_1');
+        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" ,"-Dartifactory-username="+username, "-Dartifactory-password="+password]
+
+        commandLine command
+}
