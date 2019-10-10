@@ -8,3 +8,9 @@ This is a POC repository created to test pull wso2 project to pull from git and 
 + Gradle
 + Jenkins
 + JFrog
+
+### How to execute
+Create and deploy artifacts to prod environment with prod configurations
+`./gradlew buildAndDeploy -Penvironment=prod` 
+Create and deploy artifacts to local environment with local configurations
+`./gradlew buildAndDeploy -Penvironment=local` 
