@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "9652d651-311f-47bc-b86b-4a6faaa96834",
+		"name": "test",
+		"description": "test to ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CallPhoneVerificationAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "086802da-932f-49ce-98b2-c21c4b5c2fdc",
+						"exec": [
+							"tests[\"Successfully Call the API\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://172.17.0.1:8280/mock/success",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"1"
+					],
+					"port": "8280",
+					"path": [
+						"mock",
+						"success"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
