@@ -20,12 +20,12 @@ task buildAndDeploy() {
 
 
     dependsOn ':test-project-1CompositeApplication:deployWSO2'
-    dependsOn ':test-project-1-local-config:deployWSO2'
+    dependsOn ':test-project-1-prod-config:deployWSO2'
     dependsOn ':buildCars'
 
     tasks.findByPath(':test-project-1CompositeApplication:deployWSO2').mustRunAfter ':buildCars'
 
-    tasks.findByPath(':test-project-1-local-config:deployWSO2').mustRunAfter ':test-project-1CompositeApplication:deployWSO2'
+    tasks.findByPath(':test-project-1-prod-config:deployWSO2').mustRunAfter ':test-project-1CompositeApplication:deployWSO2'
 }
 
 task buildCars(){
