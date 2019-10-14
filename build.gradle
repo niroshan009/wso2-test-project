@@ -44,3 +44,7 @@ task buildCars(){
     tasks.findByPath(':test-project-1CompositeApplication:buildWSO2').mustRunAfter':test-project-1:buildWSO2'
 
 }
+
+task runApiTests(type: Exec){
+	commandLine 'newman', 'run', 'postman-tests/test.postman_collection.json'
+}
