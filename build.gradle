@@ -46,5 +46,5 @@ task buildCars(){
 }
 
 task runApiTests(type: Exec){
-	commandLine 'newman', 'run', 'postman-tests/test.postman_collection.json'
+	commandLine 'newman', 'run', 'postman-dummy-test/api-test/test.postman_collection.json'
 }
