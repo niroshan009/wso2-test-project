@@ -1,0 +1,3 @@
+[submodule "postman-dummy-test"]
+	path = postman-dummy-test
+	url = https://github.com/niroshan009/postman-dummy-test.git
