@@ -14,6 +14,8 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
+                echo '${JFROG_USERNAME_1}'
+                echo '${JFROG_PASSWORD_1}'
                 sh './gradlew uploadToArtifactory' 
 
             }
