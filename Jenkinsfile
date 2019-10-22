@@ -14,9 +14,12 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                echo '${JFROG_USERNAME_1}'
-                echo '${JFROG_PASSWORD_1}'
-                sh './gradlew uploadToArtifactory' 
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: env.ARTIFACTORY, usernameVariable: 'JFROG_USERNAME_1', passwordVariable: 'JFROG_PASSWORD_1']]){
+                    echo '${JFROG_USERNAME_1}'
+                    echo '${JFROG_PASSWORD_1}'
+                    sh './gradlew uploadToArtifactory'
+                }
+                 
 
             }
         }
