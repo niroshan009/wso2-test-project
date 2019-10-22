@@ -6,6 +6,8 @@ pipeline {
             steps {
                 script {
                     esb_server_url = "https://localhost:9444"
+                    esb_username = "admin"
+                    esb_passsword = "admin"
                 }
                 sh 'echo ${esb_server_url}'
 		sh 'curl -u admin:password http://localhost:8081/artifactory/generic-local/wso2carbon.jks -o wso2carbon.jks'
