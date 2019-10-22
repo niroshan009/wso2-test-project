@@ -2,10 +2,11 @@ pipeline {
     agent any 
     stages {
         stage('Build') { 
-            script {
-                 server.esb.url = "https://localhost:9444"
-            }
+            
             steps {
+                script {
+                    server.esb.url = "https://localhost:9444"
+                }
                 sh 'echo ${server.esb.url}'
 		sh 'curl -u admin:password http://localhost:8081/artifactory/generic-local/wso2carbon.jks -o wso2carbon.jks'
                 sh './gradlew buildAndDeploy -Penvironment=local --stacktrace'
