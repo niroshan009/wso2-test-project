@@ -1,0 +1,21 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') { 
+            steps {
+                sh './gradlew buildAndDeploy -Penvironment=local --stacktrace'
+            }
+        }
+        stage('Test') { 
+            steps {
+                sh './gradlew cucumber'
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                sh './gradlew uploadToArtifactory' 
+
+            }
+        }
+    }
+}
