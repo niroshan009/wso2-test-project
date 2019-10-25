@@ -26,7 +26,9 @@ pipeline {
                     inputTest = userInput.Test?:''
                }
 
-               println "${inputConfig}"
+               // Echo to console
+                echo("IQA Sheet Path: ${inputConfig}")
+                echo("Test Info file path: ${inputTest}")
            }     
         }
     }
