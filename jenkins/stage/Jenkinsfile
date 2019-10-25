@@ -23,7 +23,7 @@ pipeline {
                 }
            }     
         }
-        stage('release')
+        stage('release to artifactory')
         {
            steps{
                withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
