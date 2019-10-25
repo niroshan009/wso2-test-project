@@ -4,10 +4,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example.test-project-1</groupId>
   <artifactId>test-project-1CompositeApplication</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>carbon/application</packaging>
   <name>test-project-1CompositeApplication</name>
   <description>test-project-1CompositeApplication</description>
+
+  <scm>
+    <connection>scm:git:git@github.com:niroshan009/wso2-test-project.git</connection>
+    <tag>@{project.version}</tag>
+  </scm>
+
   <properties>
     <com.example.test-project-1.api_._mock>capp/EnterpriseServiceBus</com.example.test-project-1.api_._mock>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
@@ -103,7 +109,7 @@
               <trustStoreType>JKS</trustStoreType>
               <serverUrl>https://localhost:9443</serverUrl>
               <userName>admin</userName>
-              <password>admin</password>
+              <password>admin1</password>
               <operation>deploy</operation>
             </CarbonServer>
           </carbonServers>
@@ -135,6 +141,18 @@
                     </configuration>
                 </execution>
             </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.5.3</version>
+          <configuration>
+            <goals>pre-integration-test</goals>
+            <preparationGoals>package</preparationGoals>
+            <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+            <tagNameFormat>@{project.version}</tagNameFormat>
+            <remoteTagging>false</remoteTagging>
+          </configuration>
         </plugin>
     </plugins>
   </build>
