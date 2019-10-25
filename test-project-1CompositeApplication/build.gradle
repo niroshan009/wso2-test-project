@@ -6,6 +6,10 @@ task deployWSO2(type:Exec) {
 	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
 }
 
+task releaseVersion(type:Exec){
+	commandLine 'mvn', 'release:prepare', 'release:perform'
+}
+
 task uploadToArtifactory(type: Exec) {
         description = 'Deploys CAR file to artifactory'
 
@@ -16,3 +20,4 @@ task uploadToArtifactory(type: Exec) {
 
         commandLine command
 }
+
