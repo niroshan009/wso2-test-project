@@ -24,7 +24,7 @@ task uploadToArtifactory(type: Exec) {
         commandLine command
 }
 
-task uploadToArtifactory(type: Exec) {
+task uploadToProductionArtifactory(type: Exec) {
         description = 'Deploys CAR file to artifactory'
 
 		def env = System.getenv();

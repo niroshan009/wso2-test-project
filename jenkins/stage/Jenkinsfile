@@ -23,20 +23,6 @@ pipeline {
                 }
            }     
         }
-        stage('release to artifactory')
-        {
-           steps{
-               withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
-
-                    echo '${GIT_USERNAME}'
-                    echo '${GIT_PASSWORD}'
-                    sh 'git checkout -f master'
-                    sh 'git config --global user.email "niroshan.kdt@gmail.com"'
-                    sh 'git config --global user.name "niroshan009"'
-                    sh './gradlew releaseVersion'
-                }
-           }     
-        }
 
         stage('Deploy') {
             environment {
