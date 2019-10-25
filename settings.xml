@@ -8,7 +8,7 @@
         <artifactory.url>http://localhost:8081/artifactory/</artifactory.url>
         <artifactory.username>${artifactory-username}</artifactory.username>
         <artifactory.password>${artifactory-password}</artifactory.password>
-        <artifactory.repo.key>gradle-dev-local</artifactory.repo.key>
+        <artifactory.repo.key>${artifactory-repo-key}</artifactory.repo.key>
         <artifactory.phase>deploy</artifactory.phase>
       </properties>
     </profile>
