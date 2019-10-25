@@ -9,7 +9,7 @@
   <description>test-project-1CompositeApplication</description>
 
   <scm>
-    <connection>scm:git:git://github.com/niroshan009/wso2-test-project.git</connection>
+    <connection>scm:git:https://github.com/niroshan009/wso2-test-project.git</connection>
     <tag>2.0.9</tag>
   </scm>
 
