@@ -9,7 +9,7 @@ pipeline {
                     echo '${GIT_USERNAME}'
                     echo '${GIT_PASSWORD}'
                     sh 'git config --global user.email "niroshan.kdt@gmail.com"'
-                    sh 'git config --global user.name "Jenkins"'
+                    sh 'git config --global user.name "niroshan009"'
                     sh './gradlew releaseVersion'
                 }
            }     
