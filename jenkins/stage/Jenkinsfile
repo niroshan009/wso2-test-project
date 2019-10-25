@@ -1,0 +1,44 @@
+pipeline {
+    agent any 
+    stages {
+        stage('release')
+        {       
+            def performRelease = input  message             : "Perform Maven Release?", 
+                                        ok                  : "Schedule Maven Release Build", 
+                                        submitter           : env.ALLOWED_SUBMITTER_RELEASE, 
+                                        submitterParameter  : 'APPROVING_SUBMITTER',
+                                        parameters: 
+                                        [   
+                                            booleanParam
+                                            (
+                                                defaultValue: true, 
+                                                description: '',
+                                                name: 'Dry run only?'
+                                            ),                              
+                                            string
+                                            (
+                                                defaultValue: '', 
+                                                description: '', 
+                                                name: 'Release Version'
+                                            ), 
+                                            string
+                                            (
+                                                defaultValue: '', 
+                                                description: '', 
+                                                name: 'Development version'
+                                            )                                       
+                                        ]
+
+            if( performRelease )
+            {
+                dir( env.PROJECT_FOLDER ) 
+                {
+                    withMaven(jdk:  env.JDK_VERSION , maven:  env.MVN_VERSION )
+                    {
+                        sh "mvn ${ performRelease['Dry run only?'] ? env.MVN_RELEASE_DRYRUN_GOALS : env.MVN_RELEASE_GOALS }"        
+                    }
+                }   
+            }       
+        }
+    }
+}
