@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example.test-project-1</groupId>
   <artifactId>test-project-1CompositeApplication</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>carbon/application</packaging>
   <name>test-project-1CompositeApplication</name>
   <description>test-project-1CompositeApplication</description>
 
   <scm>
     <connection>scm:git:git@github.com:niroshan009/wso2-test-project.git</connection>
-    <tag>@{project.version}</tag>
+    <tag>1.0.0</tag>
   </scm>
 
   <properties>
