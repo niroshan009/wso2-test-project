@@ -9,8 +9,8 @@
   <description>test-project-1CompositeApplication</description>
 
   <scm>
-    <connection>scm:git:https://github.com/niroshan009/wso2-test-project.git</connection>
-    <tag>2.0.9</tag>
+    <connection>scm:git:http://${env.GIT_USERNAME}:${env.GIT_PASSWORD}@github.com/niroshan009/wso2-test-project.git</connection>
+    <url>http://github.com/niroshan009/wso2-test-project.git</url>   
   </scm>
 
   <properties>
