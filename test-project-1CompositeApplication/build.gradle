@@ -10,7 +10,7 @@ task releaseVersion(type:Exec){
 	def env = System.getenv();
 	def username = System.getenv('GIT_USERNAME');
 	def password = System.getenv('GIT_PASSWORD');
-	commandLine 'mvn', 'release:prepare', 'release:perform' , '-Dusername='+username,'-Dpassword='+password
+	commandLine 'mvn', 'release:prepare', 'release:perform'
 }
 
 task uploadToArtifactory(type: Exec) {
