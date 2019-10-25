@@ -7,7 +7,10 @@ task deployWSO2(type:Exec) {
 }
 
 task releaseVersion(type:Exec){
-	commandLine 'mvn', 'release:prepare', 'release:perform'
+	def env = System.getenv();
+	def username = System.getenv('GIT_USERNAME');
+	def password = System.getenv('GIT_PASSWORD');
+	commandLine 'mvn', 'release:prepare', 'release:perform' , '-Dusername='+username,'-Dpassword='+password
 }
 
 task uploadToArtifactory(type: Exec) {

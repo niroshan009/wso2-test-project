@@ -4,7 +4,12 @@ pipeline {
         stage('release')
         {
            steps{
-              sh './gradlew releaseVersion'
+               withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
+
+                    echo '${GIT_USERNAME}'
+                    echo '${GIT_PASSWORD}'
+                    sh './gradlew releaseVersion'
+                }
            }     
         }
     }
