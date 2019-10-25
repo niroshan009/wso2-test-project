@@ -1,11 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('CleanWorkspace') {
-            steps {
-                cleanWs()
-            }
-        }
+        
         stage('release')
         {
            steps{
@@ -18,6 +14,11 @@ pipeline {
                     sh './gradlew releaseVersion'
                 }
            }     
+        }
+        stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+            }
         }
     }
 }
