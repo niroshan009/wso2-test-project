@@ -136,8 +136,8 @@
                             <contextUrl>${artifactory.url}</contextUrl>
                             <username>${artifactory.username}</username>
                             <password>${artifactory.password}</password>
-                            <repoKey>${artifactory.repo.key}</repoKey>
-                            <snapshotRepoKey>${artifactory.repo.key}</snapshotRepoKey>
+                            <repoKey>wso2-release</repoKey>
+                            <snapshotRepoKey>wso2-snapshot</snapshotRepoKey>
                         </publisher>
                     </configuration>
                 </execution>
