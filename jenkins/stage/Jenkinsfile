@@ -26,6 +26,7 @@ pipeline {
 
         stage('deploy to release')
         {
+            steps{
             withCredentials([steps.usernamePassword(
       credentialsId: 'ARTIFACTORY',
       usernameVariable: 'JFROG_USERNAME_1',
@@ -53,6 +54,7 @@ pipeline {
 
        stage('deploy to snapshot')
         {
+            steps{
             withCredentials([steps.usernamePassword(
       credentialsId: 'ARTIFACTORY',
       usernameVariable: 'JFROG_USERNAME_1',
@@ -60,6 +62,7 @@ pipeline {
 
                     sh './gradlew uploadToProductionArtifactory'
                 }
+            }
         }
        
         
