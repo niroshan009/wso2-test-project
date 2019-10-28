@@ -6,11 +6,18 @@ task deployWSO2(type:Exec) {
 	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
 }
 
-task releaseVersion(type:Exec){
+task releasePrepare(type:Exec){
 	def env = System.getenv();
 	def username = System.getenv('GIT_USERNAME');
 	def password = System.getenv('GIT_PASSWORD');
-	commandLine 'mvn', '-B', 'release:clean', 'release:prepare', 'release:perform'
+	commandLine 'mvn', 'release:prepare'
+}
+
+task releasePerform(type:Exec){
+	def env = System.getenv();
+	def username = System.getenv('GIT_USERNAME');
+	def password = System.getenv('GIT_PASSWORD');
+	commandLine 'mvn', 'release:perform'
 }
 
 task uploadToArtifactory(type: Exec) {
