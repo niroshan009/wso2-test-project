@@ -38,7 +38,7 @@ pipeline {
                     echo '${JFROG_USERNAME_1}'
                     echo '${JFROG_PASSWORD_1}'
                     sh 'git checkout tags/2.0.12'
-                    sh './gradlew uploadTooductionArtifactory'
+                    sh './gradlew uploadToProductionArtifactory'
                 }
                  
 
