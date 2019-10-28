@@ -26,14 +26,11 @@ pipeline {
 
         stage('deploy to release')
         {
-           steps{
-               withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
+            withCredentials([steps.usernamePassword(
+      credentialsId: 'ARTIFACTORY',
+      usernameVariable: 'JFROG_USERNAME_1',
+      passwordVariable: 'JFROG_PASSWORD_1')]) {
 
-                    echo '${GIT_USERNAME}'
-                    echo '${GIT_PASSWORD}'
-                    sh 'git checkout -f master'
-                    sh 'git config --global user.email "niroshan.kdt@gmail.com"'
-                    sh 'git config --global user.name "niroshan009"'
                     sh './gradlew uploadToProductionArtifactory'
                 }
            }     
@@ -56,14 +53,11 @@ pipeline {
 
        stage('deploy to snapshot')
         {
-           steps{
-               withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
+            withCredentials([steps.usernamePassword(
+      credentialsId: 'ARTIFACTORY',
+      usernameVariable: 'JFROG_USERNAME_1',
+      passwordVariable: 'JFROG_PASSWORD_1')]) {
 
-                    echo '${GIT_USERNAME}'
-                    echo '${GIT_PASSWORD}'
-                    sh 'git checkout -f master'
-                    sh 'git config --global user.email "niroshan.kdt@gmail.com"'
-                    sh 'git config --global user.name "niroshan009"'
                     sh './gradlew uploadToProductionArtifactory'
                 }
            }     
