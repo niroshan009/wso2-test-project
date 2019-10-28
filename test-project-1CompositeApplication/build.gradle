@@ -6,18 +6,11 @@ task deployWSO2(type:Exec) {
 	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
 }
 
-task releasePrepare(type:Exec){
+task releaseVersion(type:Exec){
 	def env = System.getenv();
 	def username = System.getenv('GIT_USERNAME');
 	def password = System.getenv('GIT_PASSWORD');
-	commandLine 'mvn', 'release:prepare'
-}
-
-task releasePerform(type:Exec){
-	def env = System.getenv();
-	def username = System.getenv('GIT_USERNAME');
-	def password = System.getenv('GIT_PASSWORD');
-	commandLine 'mvn', 'release:perform'
+	commandLine 'mvn', 'release:prepare', 'release:perform'
 }
 
 task uploadToArtifactory(type: Exec) {
@@ -38,7 +31,7 @@ task uploadToProductionArtifactory(type: Exec) {
 		def username = System.getenv('JFROG_USERNAME_1');
 		def password = System.getenv('JFROG_PASSWORD_1');
 		def repoKey = System.getenv('REPO_KEY')
-        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml", "-Dartifactory-username="+username, "-Dartifactory-password="+password, '-Dartifactory-repo-key='+repoKey]
+        def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml" , "-Dmaven.install.skip=true", "-Dartifactory-username="+username, "-Dartifactory-password="+password, '-Dartifactory-repo-key='+repoKey]
 
         commandLine command
 }

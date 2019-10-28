@@ -9,7 +9,7 @@ pipeline {
             }
         }
         
-        stage('release prepare')
+        stage('release')
         {
            steps{
                withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
@@ -19,52 +19,30 @@ pipeline {
                     sh 'git checkout -f master'
                     sh 'git config --global user.email "niroshan.kdt@gmail.com"'
                     sh 'git config --global user.name "niroshan009"'
-                    sh './gradlew releasePrepare'
+                    sh './gradlew releaseVersion'
                 }
            }     
         }
 
-        stage('deploy to release')
-        {
-            steps{
-            withCredentials([steps.usernamePassword(
+        stage('Deploy') {
+            environment {
+                REPO_KEY = "wso2-release"
+            }
+
+            steps {
+                withCredentials([steps.usernamePassword(
       credentialsId: 'ARTIFACTORY',
       usernameVariable: 'JFROG_USERNAME_1',
       passwordVariable: 'JFROG_PASSWORD_1')]) {
 
+                    echo '${JFROG_USERNAME_1}'
+                    echo '${JFROG_PASSWORD_1}'
                     sh './gradlew uploadToProductionArtifactory'
                 }
-           }     
-        }
+                 
 
-        stage('perform release')
-        {
-           steps{
-               withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
-
-                    echo '${GIT_USERNAME}'
-                    echo '${GIT_PASSWORD}'
-                    sh 'git checkout -f master'
-                    sh 'git config --global user.email "niroshan.kdt@gmail.com"'
-                    sh 'git config --global user.name "niroshan009"'
-                    sh './gradlew releasePerform'
-                }
-           }     
-        }
-
-       stage('deploy to snapshot')
-        {
-            steps{
-            withCredentials([steps.usernamePassword(
-      credentialsId: 'ARTIFACTORY',
-      usernameVariable: 'JFROG_USERNAME_1',
-      passwordVariable: 'JFROG_PASSWORD_1')]) {
-
-                    sh './gradlew uploadToProductionArtifactory'
-                }
             }
         }
-       
         
     }
 }
