@@ -14,7 +14,7 @@ pipeline {
             }
         }*/
 
-        stage('GIt checkout') {
+        /*stage('GIt checkout') {
             steps {
                 checkout([$class: 'GitSCM',
                           branches: [[name: "${params.TAG}"]],
@@ -25,7 +25,7 @@ pipeline {
                           userRemoteConfigs: [[url: 'https://github.com/niroshan009/wso2-test-project.git']]
                         ])
             }
-        }
+        }*/
         
         
 
@@ -56,7 +56,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+       /* stage('Deploy') {
             environment {
                 REPO_KEY = "wso2-release"
             }
@@ -74,7 +74,7 @@ pipeline {
                  
 
             }
-        }
+        }*/
         
     }
 }
