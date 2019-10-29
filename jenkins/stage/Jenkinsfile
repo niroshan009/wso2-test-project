@@ -44,12 +44,12 @@ pipeline {
                         def ret = sh(script: 'git describe --abbrev=0', returnStdout: true)
                         println('***************************')
                         println ret
+                        sh 'git checkout tags/'+ret
+                        sh './gradlew uploadToProductionArtifactory'
                     }
                     
 
-                    echo '${JFROG_USERNAME_1}'
-                    echo '${JFROG_PASSWORD_1}'
-                    sh './gradlew uploadToProductionArtifactory'
+                   
                 }
                  
 
