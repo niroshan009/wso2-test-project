@@ -7,7 +7,14 @@ pipeline {
     }
 
     stages {
-        stage('Example') {
+        /*stage('Git') {
+            steps {
+                step([$class: 'WsCleanup'])
+                checkout scm
+            }
+        }*/
+
+        stage('GIt checkout') {
             steps {
                 checkout([$class: 'GitSCM',
                           branches: [[name: "${params.TAG}"]],
@@ -17,13 +24,6 @@ pipeline {
                           submoduleCfg: [],
                           userRemoteConfigs: [[url: 'https://github.com/niroshan009/wso2-test-project.git']]
                         ])
-            }
-        }
-
-        stage('Git') {
-            steps {
-                step([$class: 'WsCleanup'])
-                checkout scm
             }
         }
         
