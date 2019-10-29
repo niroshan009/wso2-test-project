@@ -40,7 +40,7 @@ pipeline {
       usernameVariable: 'JFROG_USERNAME_1',
       passwordVariable: 'JFROG_PASSWORD_1')]) {
 
-                    def ret = sh(script: 'git describe --abbrev=0', returnStdout: true)
+                    script{def ret = sh(script: 'git describe --abbrev=0', returnStdout: true)}
                     println('***************************')
                     println ret
 
