@@ -27,20 +27,31 @@ pipeline {
             }
         }
         
-        /*stage('release')
-        {
-           steps{
-               withCredentials([steps.usernamePassword(credentialsId: 'GIT', usernameVariable: 'GIT_USERNAME',passwordVariable: 'GIT_PASSWORD')]) {
+        
 
-                    echo '${GIT_USERNAME}'
-                    echo '${GIT_PASSWORD}'
-                    sh 'git checkout -f master'
-                    sh 'git config --global user.email "niroshan.kdt@gmail.com"'
-                    sh 'git config --global user.name "niroshan009"'
-                    sh './gradlew releaseVersion'
+        stage('get latest tag') {
+            environment {
+                REPO_KEY = "wso2-release"
+            }
+
+            steps {
+                withCredentials([steps.usernamePassword(
+      credentialsId: 'ARTIFACTORY',
+      usernameVariable: 'JFROG_USERNAME_1',
+      passwordVariable: 'JFROG_PASSWORD_1')]) {
+
+                    def ret = sh(script: 'git describe --abbrev=0', returnStdout: true)
+                    println('***************************')
+                    println ret
+
+                    echo '${JFROG_USERNAME_1}'
+                    echo '${JFROG_PASSWORD_1}'
+                    sh './gradlew uploadToProductionArtifactory'
                 }
-           }     
-        }*/
+                 
+
+            }
+        }
 
         stage('Deploy') {
             environment {
