@@ -40,9 +40,12 @@ pipeline {
       usernameVariable: 'JFROG_USERNAME_1',
       passwordVariable: 'JFROG_PASSWORD_1')]) {
 
-                    script{def ret = sh(script: 'git describe --abbrev=0', returnStdout: true)}
-                    println('***************************')
-                    println ret
+                    script{
+                        def ret = sh(script: 'git describe --abbrev=0', returnStdout: true)
+                        println('***************************')
+                        println ret
+                    }
+                    
 
                     echo '${JFROG_USERNAME_1}'
                     echo '${JFROG_PASSWORD_1}'
